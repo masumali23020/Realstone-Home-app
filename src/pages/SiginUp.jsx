@@ -15,7 +15,7 @@ const SiginUp = () => {
   })
   const [showPassword, setShowPassword] = useState(false)
   const {name, email, password} = formData;
-  const [loadong, setLoading] = useState(true)
+
   
   const navigate = useNavigate()
 
@@ -112,10 +112,10 @@ const SiginUp = () => {
             <p className='text-center font-semibold mx-4 uppercase'>or</p>
           </div>
          
-           
+          <Oauth />
             
           </form>
-          <Oauth />
+     
         
         </div>
       </div>

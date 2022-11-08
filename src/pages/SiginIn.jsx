@@ -1,6 +1,8 @@
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { BiHide, BiShowAlt } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Oauth from '../components/Oauth';
 import SiginInImge from '../images/sign.svg';
 
@@ -11,6 +13,7 @@ const SiginIn = () => {
   })
   const [showPassword, setShowPassword] = useState(false)
   const { email, password} = formData;
+  const naviget = useNavigate()
   
   
 
@@ -29,7 +32,29 @@ const SiginIn = () => {
   const showHidePassword = () => {
     setShowPassword((prevState) => !prevState)
   }
+async function onSignIn(e) {
+  e.preventDefault()
+  try {
+    const auth = getAuth();
+    const userCredentai = await signInWithEmailAndPassword(auth, email, password)
+    if(userCredentai.user){
+      naviget("/")
+      
+     
 
+    }
+
+    console.log(userCredentai);
+
+
+    
+  } catch (error) {
+    toast.error("Somthing wrong!")
+    console.log(error);
+    
+  }
+
+}
 
 
 
@@ -45,7 +70,7 @@ const SiginIn = () => {
 
         {/* right side from input  */}
         <div className='md:w-[67%] lg:w-[40%] w-full'>
-          <form className=' relative' >
+          <form className=' relative' onSubmit={onSignIn} >
             <input type="text" onChange={handelInputChange}  id="email" value={email}className='w-full rounded font-semibold text-gray-500 px-3 py-2 bg-white mb-6 border-gray-400 '  placeholder='boss@gmail.com' />
 
 
@@ -64,15 +89,16 @@ const SiginIn = () => {
                 <Link className='text-gray-600 hover:text-gray-800 transition duration-150 ease-in-out' to="/forget-password" >forget password</Link>
               </p>
             </div>
-           
-            
-          </form>
-
-          <button type='submit ' className='w-full bg-blue-600 px-3 py-3 uppercase  font-bold text-white rounded shadow-md hover:bg-blue-700 hover:text-gray-300 active:bg-blue-800 hover:shadow-lg duration-150 transition ease-in-out'>Sign in</button>
+            <button type='submit ' className='w-full bg-blue-600 px-3 py-3 uppercase  font-bold text-white rounded shadow-md hover:bg-blue-700 hover:text-gray-300 active:bg-blue-800 hover:shadow-lg duration-150 transition ease-in-out'>Sign in</button>
           <div className='flex items-center my-4 before:border-t before:flex-1 before:border-gray-300 after:border-t after:border-gray-300 after:flex-1'>
             <p className='text-center font-semibold mx-4 uppercase'>or</p>
           </div>
           <Oauth />
+           
+            
+          </form>
+
+          
         </div>
       </div>
 
