@@ -19,12 +19,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home /> }/>
         <Route path="/profile" element={<PrivateRouter />} >
-        <Route path="/profile" element={<Profile /> }/>
+          <Route path="/profile" element={<Profile /> }/>
         </Route>
     
         <Route path="/offer" element={<Offer /> }/>
+        <Route path="/creating-listing" element={<PrivateRouter />}>
+          <Route path="/creating-listing" element={<CreatingListing />} />
+        </Route>
      
-        <Route path="/creating-listing" element={<CreatingListing />} />
+      
         
         <Route path="/sign-up" element={<SiginUp /> }/>
         <Route path="/sign-in" element={<SiginIn /> }/>
