@@ -26,6 +26,10 @@ function App() {
         <Route path="/creating-listing" element={<PrivateRouter />}>
           <Route path="/creating-listing" element={<CreatingListing />} />
         </Route>
+
+     
+
+     
      
       
         
@@ -38,16 +42,16 @@ function App() {
       </Routes>
     </Router>
     <ToastContainer
-position="bottom-center"
-autoClose={3000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
+          position="bottom-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
 />
    
      
