@@ -59,7 +59,7 @@ const Listing = ({listing,id ,onEdit, onDelete}) => {
         className="absolute bottom-2 right-2 h-[14px] cursor-pointer text-red-500"
         onClick={() => onDelete(listing.id)}
       />
-    )}
+    )} 
     {onEdit && (
       <MdEdit
         className="absolute bottom-2 right-7 h-4 cursor-pointer "

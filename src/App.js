@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
 import PrivateRouter from "./components/PrivateRouter";
 import CreatingListing from "./pages/CreatingListing";
+import EditeListing from "./pages/EditeListing";
 import ForgetPassword from "./pages/ForgetPassword";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
@@ -22,23 +23,18 @@ function App() {
           <Route path="/profile" element={<Profile /> }/>
         </Route>
     
-        <Route path="/offer" element={<Offer /> }/>
+        
+     
+        <Route path="/sign-up" element={<SiginUp /> }/>
+        <Route path="/sign-in" element={<SiginIn /> }/>
+        <Route path="/forget-password" element={<ForgetPassword /> }/>
+         <Route path="/offer" element={<Offer /> }/>
         <Route path="/creating-listing" element={<PrivateRouter />}>
           <Route path="/creating-listing" element={<CreatingListing />} />
         </Route>
-
-     
-
-     
-     
-      
-        
-        <Route path="/sign-up" element={<SiginUp /> }/>
-        <Route path="/sign-in" element={<SiginIn /> }/>
-        <Route path="/forget-password" element={<ForgetPassword
-         /> }/>
-
-      
+        <Route path="/edit-listing" element={<PrivateRouter />}>
+          <Route path="/edit-listing/:listingId" element={<EditeListing />} />
+        </Route>
       </Routes>
     </Router>
     <ToastContainer
