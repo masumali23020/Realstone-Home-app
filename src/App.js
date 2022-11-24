@@ -7,6 +7,7 @@ import CreatingListing from "./pages/CreatingListing";
 import EditeListing from "./pages/EditeListing";
 import ForgetPassword from "./pages/ForgetPassword";
 import Home from "./pages/Home";
+import Listings from "./pages/Listings";
 import Offer from "./pages/Offer";
 import Profile from "./pages/Profile";
 import SiginIn from "./pages/SiginIn";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/sign-up" element={<SiginUp /> }/>
         <Route path="/sign-in" element={<SiginIn /> }/>
         <Route path="/forget-password" element={<ForgetPassword /> }/>
+        <Route path="/category/:categoryName/:listingId" element={<Listings /> } />
          <Route path="/offer" element={<Offer /> }/>
         <Route path="/creating-listing" element={<PrivateRouter />}>
           <Route path="/creating-listing" element={<CreatingListing />} />
@@ -37,6 +39,8 @@ function App() {
         </Route>
       </Routes>
     </Router>
+
+    {/* toast massage  */}
     <ToastContainer
           position="bottom-center"
           autoClose={3000}
